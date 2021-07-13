@@ -3,12 +3,12 @@ import java.util.*;
 class StorageOptimization{
 
 	public static int storageOptimzation(int n, int m, int[] hRemove, int[] vRemove) {
-    		Set<Integer> hRemoved = new HashSet<>();
-    		Set<Integer> vRemoved = new HashSet<>();
-    		for (int r : hRemove)
-      			hRemoved.add(r);
-    		for (int r : vRemove)
-      			vRemoved.add(r);
+		Set<Integer> hRemoved = new HashSet<>();
+		Set<Integer> vRemoved = new HashSet<>();
+		for (int r : hRemove)
+			hRemoved.add(r);
+		for (int r : vRemove)
+			vRemoved.add(r);
     
    		 int prevH = 0;
    		 int maxHDiff = 0;
