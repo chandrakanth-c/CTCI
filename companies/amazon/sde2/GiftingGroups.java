@@ -11,6 +11,7 @@ public class GiftingGroups {
     public int giftingGroups(List<String> list){
         Map<Integer,List<Integer>> graph=new HashMap<>();
         createGraph(list,graph);
+        System.out.println(graph);
         int n=list.size();
         return countGroups(graph,n);
     }
@@ -19,9 +20,9 @@ public class GiftingGroups {
         boolean[] visited=new boolean[n];
         for(int i:graph.keySet()){
             if(!visited[i]){
+                count++;
                 dfs(graph,visited,i);
             }
-            count++;
         }
         return count;
     }
@@ -33,8 +34,6 @@ public class GiftingGroups {
             for(int i:children){
                 if(!visited[i]){
                     dfs(graph,visited,i);
-                }else{
-                    count--;
                 }
             }
         }
@@ -42,11 +41,12 @@ public class GiftingGroups {
 
     private void createGraph(List<String> list,Map<Integer,List<Integer>> graph){
         for(int i=0;i<list.size();i++){
+            graph.put(i,new ArrayList<>());
+        }
+
+        for(int i=0;i<list.size();i++){
             for(int j=0;j<list.get(i).length();j++){
                 if(i!=j && list.get(i).charAt(j)=='1'){
-                    if(!graph.containsKey(i)){
-                        graph.put(i,new ArrayList<>());
-                    }
                     graph.get(i).add(j);
                 }
             }
@@ -69,7 +69,7 @@ public class GiftingGroups {
         String arr6[] = {"11100", "11100", "11100", "00011", "00011"};//2
         String arr7[] = {"10100", "01010", "10100", "01010", "00001"};//3
     
-        List<String> arrayList = Arrays.asList(given1);
+        List<String> arrayList = Arrays.asList(arr7);
         int result = gg.giftingGroups(arrayList);
         System.out.println(result);
     }

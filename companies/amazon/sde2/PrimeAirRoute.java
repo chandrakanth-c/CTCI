@@ -111,6 +111,6 @@ public class PrimeAirRoute {
         blist.get(2).add(3);
         blist.get(2).add(4000);
 
-        System.out.println(getIdPairsForOptimal(flist, blist,11000));
+        System.out.println(pr.primeRoute(11000,flist, blist));
     }
 }

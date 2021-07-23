@@ -1,3 +1,15 @@
+/**
+ * Given a matrix with values 0 (trenches) , 1 (flat) , and 9 (obstacle) you have to find minimum distance to reach 9 (obstacle). If not possible then return -1.
+ *The demolition robot must start at the top left corner of the matrix, which is always flat, and can move on block up, down, right, left.
+ *The demolition robot cannot enter 0 trenches and cannot leave the matrix.
+ *0-> trenches 1->flat 9->obstacle
+ *Sample Input :
+ *[1, 0, 0],
+ *[1, 0, 0],
+ *[1, 9, 1]]
+ *Sample Output :
+ *3
+ */
 package companies.amazon.sde2;
 import java.util.*;
 
@@ -30,7 +42,7 @@ public class DemolitionRobot {
             if(isValid(lot,cur.x,cur.y+1,visited)){
                 q.add(new Cell(cur.x,cur.y+1,cur.dist+1));
             }
-	        //explore bottom
+	        //explore bottom 
             if(isValid(lot,cur.x+1,cur.y,visited)){
                 q.add(new Cell(cur.x+1,cur.y,cur.dist+1));
             }
@@ -53,15 +65,15 @@ public class DemolitionRobot {
     public static void main(String[] args){
 	DemolitionRobot dr=new DemolitionRobot();
 	List<List<Integer>> lot=new ArrayList<>();
-	lot.add(new ArrayList());
+	lot.add(new ArrayList<>());
 	lot.get(0).add(1);
 	lot.get(0).add(0);
 	lot.get(0).add(0);
-	lot.add(new ArrayList());
+	lot.add(new ArrayList<>());
 	lot.get(1).add(1);
 	lot.get(1).add(0);
 	lot.get(1).add(1);
-	lot.add(new ArrayList());
+	lot.add(new ArrayList<>());
 	lot.get(2).add(1);
 	lot.get(2).add(1);
 	lot.get(2).add(9);
